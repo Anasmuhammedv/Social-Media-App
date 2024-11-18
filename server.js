@@ -13,12 +13,10 @@ dotenv.config();
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: "https://socialmediaa.vercel.app",
-        credentials: true
-    }
-});
+app.use(cors())
+const io = new Server(server);
+
+
 
 // MongoDB connection
 const db_url = process.env.DB_URL;
